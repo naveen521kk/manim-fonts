@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "manim-fonts"
+version = "0.1.0"
+description = "Use Google Fonts With Manim."
+authors = ["Naveen M K <naveen@syrusdark.website>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+manim = ">=0.3.0"
+requests = ">=2.0.0"
+appdirs= ">=1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.dev-dependencies.black]
+version = "^20.8b1"
+allow-prereleases = false
+python = "^3.6"
+markers = "platform_python_implementation == 'CPython'"
+
+[tool.poetry.plugins."manim.plugins"]
+"manim_fonts" = "manim_fonts"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
