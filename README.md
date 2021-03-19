@@ -4,7 +4,7 @@ Get fonts on the fly from the internet which can be used with Manim.
 
 <p align="center">
     <a href="https://pypi.org/project/manim-fonts/"><img src="https://img.shields.io/pypi/v/manim.svg?style=flat&logo=pypi" alt="PyPI Latest Release"></a>
-    <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+    <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black"></a>
 </p>
 
 ## Example
