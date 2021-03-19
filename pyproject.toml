@@ -3,6 +3,7 @@ name = "manim-fonts"
 version = "0.1.0"
 description = "Use Google Fonts With Manim."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
+repository="https://github.com/naveen521kk/manim-fonts"
 
 [tool.poetry.dependencies]
 python = "^3.7"
