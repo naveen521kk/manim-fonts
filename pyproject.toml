@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "manim-fonts"
-version = "0.1.0.post2"
+version = "0.1.0.post3"
 description = "Use Google Fonts With Manim."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
 license = "BSD-3-Clause"
