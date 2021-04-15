@@ -1,11 +1,18 @@
-import requests
-from pathlib import Path
-import zipfile
-from .config import FONTS_DIR
-from .utils import gen_fonts_google_url,str2hash,get_downloaded_fonts,update_downloaded_fonts
-import tempfile
 import shutil
+import tempfile
+import zipfile
+from pathlib import Path
+
+import requests
+
 from ._logging import logger
+from .config import FONTS_DIR
+from .utils import (
+    gen_fonts_google_url,
+    get_downloaded_fonts,
+    str2hash,
+    update_downloaded_fonts,
+)
 
 
 def download_fonts(font_family: str) -> Path:
@@ -26,5 +33,5 @@ def download_fonts(font_family: str) -> Path:
             for file in Path(tmpdir).glob("*.ttf"):
                 logger.info("Moving %s to %s", file, font_location)
                 shutil.copy(file, font_location)
-        update_downloaded_fonts(font_hash,font_location)
+        update_downloaded_fonts(font_hash, font_location)
     return font_location

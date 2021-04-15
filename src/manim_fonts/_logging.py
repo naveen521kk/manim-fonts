@@ -1,3 +1,3 @@
 import logging
 
-logger = logging.getLogger('manim-fonts')
+logger = logging.getLogger("manim-fonts")

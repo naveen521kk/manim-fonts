@@ -1,5 +1,6 @@
-import appdirs
 from pathlib import Path
+
+import appdirs
 
 APP_NAME = "Manim-Fonts"
 APP_AUTHOR = "Manim Community"
