@@ -141,3 +141,4 @@ cython_debug/
 
 #manim's folders
 media/
+manim.cfg
