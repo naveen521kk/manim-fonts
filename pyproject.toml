@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "manim-fonts"
 version = "0.1.0.post4"
-description = "Use Google Fonts With Manim."
+description = "Use Fonts from Internet With Manim."
 authors = ["Naveen M K <naveen@syrusdark.website>"]
 license = "BSD-3-Clause"
 readme="README.md"
