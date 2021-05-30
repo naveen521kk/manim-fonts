@@ -17,7 +17,23 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-  
+
+    - name: Install and cache ffmpeg (all OS)
+      uses: FedericoCarboni/setup-ffmpeg@v1
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      id: setup-ffmpeg
+
+    - name: Install system dependencies (Linux)
+      if: runner.os == 'Linux'
+      run: |
+          sudo apt-get -y install libpango1.0-dev
+
+    - name: Install System Dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: |
+        brew install cairo pango
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
