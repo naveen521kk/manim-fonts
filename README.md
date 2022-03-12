@@ -25,4 +25,4 @@ The fonts downloaded are cached and are reused.
 
 ## License
 
-This project is license under [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
+This project is licensed under [BSD 3-Clause License](https://choosealicense.com/licenses/bsd-3-clause/).
