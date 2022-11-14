@@ -8,19 +8,14 @@ readme="README.md"
 repository="https://github.com/naveen521kk/manim-fonts"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.8,<3.12"
 manim = ">=0.3.0"
 requests = ">=2.0.0"
 appdirs= ">=1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
-
-[tool.poetry.dev-dependencies.black]
-version = "^20.8b1"
-allow-prereleases = false
-python = "^3.6"
-markers = "platform_python_implementation == 'CPython'"
+black = "^22.10"
 
 [tool.poetry.plugins."manim.plugins"]
 "manim_fonts" = "manim_fonts"
