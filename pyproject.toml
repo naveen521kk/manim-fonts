@@ -15,7 +15,7 @@ appdirs= ">=1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.2"
-black = "^22.10"
+black = "^23.1"
 
 [tool.poetry.plugins."manim.plugins"]
 "manim_fonts" = "manim_fonts"
