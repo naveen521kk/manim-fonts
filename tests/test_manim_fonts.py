@@ -17,7 +17,6 @@ def new_fonts_dir(tmpdir, monkeypatch):
 
 
 def test_download(new_fonts_dir):
-
     from manim_fonts import RegisterFont
     from manim_fonts.config import FONTS_DIR
 
