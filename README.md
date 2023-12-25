@@ -13,10 +13,12 @@ Get fonts on the fly from the internet which can be used with Manim.
 ```py
 from manim import *
 from manim_fonts import *
+
+
 class Example(Scene):
     def construct(self):
         with RegisterFont("Poppins") as fonts:
-            a=Text("Hello World",font=fonts[0])
+            a = Text("Hello World", font=fonts[0])
             self.play(Write(a))
 ```
 You can replace `Poppins` with any font available on Google Fonts for example `RegisterFont("Berkshire Swash")`, and this plugin will download that font and add to search path and returns the font names that can be passed to `Text` to directly to use the fonts.
