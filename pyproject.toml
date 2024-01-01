@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "manim-fonts"
-version = "0.2.0"
+version = "0.3.0"
 description = "Use Fonts from Internet With Manim."
 authors = ["Naveen M K <naveen@manim.community>"]
 license = "BSD-3-Clause"
