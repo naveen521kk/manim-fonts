@@ -19,7 +19,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install and cache ffmpeg (all OS)
-      uses: FedericoCarboni/setup-ffmpeg@v2
+      uses: FedericoCarboni/setup-ffmpeg@v3
       with:
           token: ${{ secrets.GITHUB_TOKEN }}
       id: setup-ffmpeg
