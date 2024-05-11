@@ -1,10 +1,10 @@
 from pathlib import Path
 
-import appdirs
+import platformdirs
 
 APP_NAME = "Manim-Fonts"
 APP_AUTHOR = "Naveen M K"
 
-APPS_DIR = appdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
+APP_DIRS = platformdirs.user_cache_dir(APP_NAME, APP_AUTHOR)
 
-FONTS_DIR = Path(APPS_DIR, "fonts")
+FONTS_DIR = Path(APP_DIRS, "fonts")
