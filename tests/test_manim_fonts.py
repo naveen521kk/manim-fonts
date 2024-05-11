@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-import appdirs
+import platformdirs
 import pytest
 
 
@@ -12,7 +12,7 @@ def new_fonts_dir(tmpdir, monkeypatch):
     def tmp(*args):
         return tmpdir
 
-    monkeypatch.setattr(appdirs, "user_cache_dir", tmp)
+    monkeypatch.setattr(platformdirs, "user_cache_dir", tmp)
     yield tmpdir
 
 
