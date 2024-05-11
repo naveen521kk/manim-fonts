@@ -1,7 +1,7 @@
+import json
 import shutil
 import tempfile
 import time
-import json
 from pathlib import Path
 
 import requests
