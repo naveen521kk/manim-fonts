@@ -1,7 +1,7 @@
+import json
 import shutil
 import tempfile
 import time
-import json
 from pathlib import Path
 
 import requests
@@ -92,8 +92,8 @@ def download_fonts(font_family: str) -> Path:
                     "\n" + "Please check if the font family is correct and try again."
                 )
                 error_message += (
-                    "\n"
-                    + "If the issue persists, please report it at https://github.com/naveen521kk/manim-fonts/issues"
+                    "\n" + "If the issue persists, please report it at"
+                    " https://github.com/naveen521kk/manim-fonts/issues"
                 )
                 logger.error(error_message)
                 raise Exception(error_message)
