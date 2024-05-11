@@ -12,8 +12,8 @@ def str2hash(string: str) -> str:
     return hash.hexdigest()
 
 
-def gen_fonts_google_url(font_family: str) -> str:
-    return f"https://fonts.google.com/download?family={font_family}"
+def gen_download_list_url(font_family: str) -> str:
+    return f"https://fonts.google.com/download/list?family={font_family}"
 
 
 def get_downloaded_fonts() -> Dict[str, str]:

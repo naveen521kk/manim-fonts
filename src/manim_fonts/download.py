@@ -1,7 +1,7 @@
 import shutil
 import tempfile
 import time
-import zipfile
+import json
 from pathlib import Path
 
 import requests
@@ -9,7 +9,7 @@ import requests
 from ._logging import logger
 from .config import FONTS_DIR
 from .utils import (
-    gen_fonts_google_url,
+    gen_download_list_url,
     get_downloaded_fonts,
     str2hash,
     update_downloaded_fonts,
@@ -40,18 +40,63 @@ def download_and_retry(url: str, local_filename: Path):
     return True
 
 
+def download_font_files(font_family: str, tmpdir: Path) -> None:
+    font_url = gen_download_list_url(font_family)
+    res = requests.get(font_url)
+    res.raise_for_status()
+
+    # find first { and string contents before it
+    contents = res.text
+    start = contents.find("{")
+    contents = contents[start:]
+
+    fonts = json.loads(contents)
+    file_refs = fonts.get("manifest", {}).get("fileRefs", None)
+
+    if not file_refs:
+        raise ValueError("No valid font files fount for font family %s" % font_family)
+
+    logger.info(
+        "Downloading font files for %s (number of font_file=%d)",
+        font_family,
+        len(file_refs),
+    )
+    for file in file_refs:
+        url = file.get("url")
+        filename = file.get("filename")
+        download_dest = tmpdir / filename
+
+        # if folder is not created, create it
+        download_dest.parent.mkdir(parents=True, exist_ok=True)
+        download_and_retry(url, tmpdir / filename)
+
+
 def download_fonts(font_family: str) -> Path:
-    font_url = gen_fonts_google_url(font_family)
     font_hash = str2hash(font_family)
     font_location = FONTS_DIR / font_hash
     font_location.mkdir(parents=True, exist_ok=True)
     if font_hash not in get_downloaded_fonts():
-        logger.info("Downloading %s from %s", font_family, font_url)
+        logger.info(
+            "Downloading %s font from google fonts to %s", font_family, font_location
+        )
         with tempfile.TemporaryDirectory(prefix="manim-fonts") as tmpdir:
-            tfile = Path(tmpdir) / "temp.zip"
-            download_and_retry(font_url, tfile)
-            with zipfile.ZipFile(tfile, "r") as zip:
-                zip.extractall(tmpdir)
+            try:
+                download_font_files(font_family, Path(tmpdir))
+            except requests.HTTPError as e:
+                error_message = (
+                    "Error while downloading font files for font family %s"
+                    % font_family
+                )
+                error_message += "\n" + repr(e)
+                error_message += (
+                    "\n" + "Please check if the font family is correct and try again."
+                )
+                error_message += (
+                    "\n"
+                    + "If the issue persists, please report it at https://github.com/naveen521kk/manim-fonts/issues"
+                )
+                logger.error(error_message)
+                raise Exception(error_message)
             for file in Path(tmpdir).glob("*.ttf"):
                 logger.info("Moving %s to %s", file, font_location)
                 shutil.copy(file, font_location)
