@@ -3,20 +3,14 @@ name: Tests
 on: [push, pull_request]
 
 jobs:
-
   test:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest,windows-latest,macos-latest]
-        python-version: ['3.9', '3.10', '3.11']
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.11
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: 3.11
 
     - name: Install and cache ffmpeg (all OS)
       uses: FedericoCarboni/setup-ffmpeg@v3
@@ -24,15 +18,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       id: setup-ffmpeg
 
-    - name: Install system dependencies (Linux)
-      if: runner.os == 'Linux'
+    - name: Install system dependencies
       run: |
           sudo apt-get -y install libpango1.0-dev
-
-    - name: Install System Dependencies (macOS)
-      if: runner.os == 'macOS'
-      run: |
-        brew install cairo pango
 
     - name: Install dependencies
       run: |
