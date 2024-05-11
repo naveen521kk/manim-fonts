@@ -14,7 +14,7 @@ requests = ">=2.0.0"
 platformdirs = ">=4"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.2"
+pytest = "^8.2"
 black = "^23.12"
 
 [tool.poetry.plugins."manim.plugins"]
