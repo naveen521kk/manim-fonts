@@ -13,7 +13,7 @@ manim = ">=0.3.0"
 requests = ">=2.0.0"
 platformdirs = ">=4"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^8"
 
 [tool.poetry.plugins."manim.plugins"]
