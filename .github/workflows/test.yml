@@ -12,10 +12,6 @@ jobs:
       with:
         python-version: 3.12
 
-    - name: Install and cache ffmpeg (all OS)
-      uses: FedericoCarboni/setup-ffmpeg@v3
-      id: setup-ffmpeg
-
     - name: Install system dependencies
       run: |
           sudo apt-get -y install libpango1.0-dev
