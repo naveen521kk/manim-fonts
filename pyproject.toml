@@ -1,14 +1,14 @@
 [tool.poetry]
 name = "manim-fonts"
-version = "0.4.0"
+version = "0.5.0"
 description = "Use Fonts from Internet With Manim."
-authors = ["Naveen M K <naveen@manim.community>"]
+authors = ["Naveen M K <naveen521kk@gmail.com>"]
 license = "BSD-3-Clause"
 readme="README.md"
 repository="https://github.com/naveen521kk/manim-fonts"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9"
 manim = ">=0.3.0"
 requests = ">=2.0.0"
 platformdirs = ">=4"
